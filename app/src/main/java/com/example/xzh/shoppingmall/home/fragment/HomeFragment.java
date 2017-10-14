@@ -113,7 +113,20 @@ public class HomeFragment extends BaseFragment {
             // 有数据，设置适配器
             adapter = new HomeFragmentAdapter(mContext, resultBean);
             rvHome.setAdapter(adapter);
-            rvHome.setLayoutManager(new GridLayoutManager(mContext, 1));
+            GridLayoutManager manager = new GridLayoutManager(mContext, 1);
+            // 设置跨度大小监听，实现滑动屏幕按钮显示和隐藏
+            manager.setSpanSizeLookup(new GridLayoutManager.SpanSizeLookup() {
+                @Override
+                public int getSpanSize(int position) {
+                    if (position <= 4) {
+                        ib_top.setVisibility(View.GONE);
+                    } else {
+                        ib_top.setVisibility(View.VISIBLE);
+                    }
+                    return 1;
+                }
+            });
+            rvHome.setLayoutManager(manager);
         } else {
             // 没有数据
         }

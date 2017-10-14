@@ -9,7 +9,7 @@ package com.example.xzh.shoppingmall.utils;
 
 public class Constants {
 
-    public static String BASE_URL = "http://192.168.0.100:8080/shopping";
+    public static String BASE_URL = "http://192.168.0.102:8080/shopping";
     // 主页面
     public static String HOME_URL = BASE_URL + "/json/HOME_URL.json";
     // 图片
